@@ -1,0 +1,57 @@
+<!DOCTYPE html> <!-- Defines the document type as HTML5 -->
+<html lang="en"> <!-- Specifies the language of the document -->
+<head>
+<meta charset="UTF-8"> <!-- Specifies the character encoding -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configures the viewport for mobile devices -->
+<title>Calculator</title> <!-- Sets the title of the webpage -->
+<link rel= "stylesheet" href="calculatorStyle.css"> <!-- Links an external CSS file for styling -->
+
+<body>
+    <h2>Calculator</h2> <!-- Heading for the calculator -->
+    <input type="number" id="num1" placeholder="Num1"><br><br> <!-- Input field for the first number -->
+    <input type="number" id="num2" placeholder="Num2"><br><br> <!-- Input field for the second number -->
+    <select name="operators" id="operator">
+        <option value =""></option>
+        <option value = " "></option>
+        </option> <!-- Dropdown menu for selecting the operator -->
+        <option value="+">+</option> <!-- Option for addition -->
+        <option value="-">-</option> <!-- Option for subtraction -->
+        <option value="*">*</option> <!-- Option for multiplication -->
+        <option value="/">/</option> <!-- Option for division -->
+        <option value="%">%</option> <!-- Option for modulus (remainder) -->
+    </select><br><br>
+    <button type="button" onclick="calculate()">Calculate</button> <!-- Button to trigger calculation -->
+    <p id="result"></p> <!-- Paragraph element to display the result -->
+
+    <script> 
+        function calculate() { // Defines a JavaScript function to perform the calculation -->
+            var num1 = parseFloat(document.getElementById("num1").value); // Retrieves the value of the first number -->
+            var num2 = parseFloat(document.getElementById("num2").value); // Retrieves the value of the second number -->
+            var operator = document.getElementById("operator").value; // Retrieves the selected operator -->
+            var result; // Declares a variable to store the result -->
+
+            switch(operator) { // Switch statement to perform different operations based on the selected operator -->
+                case '+': // Addition -->
+                    result = num1 + num2;
+                    break;
+                case '-': //Subtraction -->
+                    result = num1 - num2;
+                    break;
+                case '*': //Multiplication -->
+                    result = num1 * num2;
+                    break;
+                case '/': // Division -->
+                    result = num1 / num2;
+                    break;
+                case '%': // Modulus (remainder) -->
+                    result = num1 % num2;
+                    break;
+                default: //Default case if an invalid operator is selected -->
+                    result = "Invalid operation";
+            }
+
+            alert("Results: "+result); // Displays the result in an alert dialog -->
+        }
+    </script>
+</body>
+</html>
